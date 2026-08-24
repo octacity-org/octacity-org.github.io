@@ -226,8 +226,11 @@ export function createLogo(): LogoInstance {
   const INNER_START =
     HUB_OUTER_RADIUS + 0.006;
 
+  // Leave a visible gap between inner rods and the ring.
+  const INNER_GAP = 0.045;
+
   const INNER_END =
-    OUTER_RING_INNER_RADIUS + 0.008;
+    OUTER_RING_INNER_RADIUS - INNER_GAP;
 
   const innerLength =
     INNER_END - INNER_START;
