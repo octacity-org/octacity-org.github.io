@@ -1,0 +1,115 @@
+:root {
+  --bg-color: #000000;
+  --text-color: rgba(255, 255, 255, 0.92);
+  --text-muted: rgba(255, 255, 255, 0.42);
+  --text-hover: rgba(255, 255, 255, 0.95);
+  --font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100vw;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.canvas-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  outline: none;
+}
+
+.ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: clamp(2.75rem, 7vh, 5rem);
+  gap: 1.25rem;
+}
+
+.brand-title {
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0.65em;
+  text-indent: 0.65em; /* compensate for trailing letter-spacing */
+  color: rgba(255, 255, 255, 0.82);
+  text-transform: uppercase;
+  transition: color 0.4s ease;
+  pointer-events: auto;
+  cursor: default;
+  line-height: 1;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.4rem;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  pointer-events: auto;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.github-link:hover, .github-link:focus-visible {
+  opacity: 1;
+  color: var(--text-hover);
+  transform: translateY(-1.5px);
+  outline: none;
+}
+
+.github-icon {
+  width: 22px;
+  height: 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .github-link {
+    transition: none;
+  }
+}
