@@ -3,7 +3,7 @@ import { Component } from 'solid-js';
 export const GithubLink: Component = () => {
   return (
     <a
-      href="https://github.com/0ctacity"
+      href="https://github.com/octacity-org"
       target="_blank"
       rel="noopener noreferrer"
       class="github-link"
