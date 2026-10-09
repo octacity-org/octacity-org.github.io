@@ -1,4 +1,7 @@
-name: Deploy to GitHub Pages
+name: Redirect GitHub Pages to octacity.tech
+
+# The site is hosted on Vercel at https://octacity.tech.
+# GitHub Pages only serves a redirect page so old links keep working.
 
 on:
   push:
@@ -16,7 +19,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  deploy-redirect:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -25,24 +28,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - name: Install dependencies
-        run: bun install
-
-      - name: Build site
-        run: bun run build
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './pages-redirect'
 
       - name: Deploy to GitHub Pages
         id: deployment
