@@ -2,6 +2,8 @@
 
 Single-screen Octacity landing page built with **SolidJS + TypeScript + Three.js + Bun**.
 
+Live at **https://octacity.tech**, deployed on Vercel on every push to `main`.
+
 ## Features
 
 - **Thin 3D Emblem**: Extruded Octacity mark with distinct depth, beveled edge facets, and double-sided dark polished metallic/ceramic material.
